@@ -1,4 +1,4 @@
-package com.example.midterm_project;
+
 import java.util.*;
 public class Twitter {
         private List<User> users;
@@ -10,18 +10,37 @@ public class Twitter {
         }
 
         public User signUp(String username,String fullName, String password,String emailAddress,int phoneNumber,String country,String birthDate) {
-            // if ( unique username)
-            // if ( unique email )
-            // if ( unique phone )
+
+            for (User i:users) {
+                if(!username.equals(i.getUsername())){
+                    if (!emailAddress.equals(i.getEmailAddress())){
+                        if(phoneNumber!=i.getPhoneNumber()){
+                            System.err.println("You are successfully signed up.Welcome! ");
+                        }
+                    }
+                }
+                else(){
+                    System.err.println("username or phonenumber or email is already used,try again.");
+                }
+
+            }
+
+                // if ( unique phone )
+
             User user = new User(username,fullName ,password,emailAddress,phoneNumber,country,birthDate);
             this.users.add(user);
             return user;
         }
 
         public User logIn(String username, String password) {    /// error for wrong password
-            for (User user : this.users) {
+            for (User user: this.users) {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                    return user;
+                    System.err.println("welcome again friend");
+                } else if (!user.getPassword().equals(password)) {
+                    System.err.println("password is incorrect!your access is denied");
+                }
+                else(){
+                    System.err.println("access denied");
                 }
             }
             return null;
