@@ -9,13 +9,16 @@ public class Twitter {
             this.tweets = new ArrayList<>();
         }
 
-        public User signUp(String username,String fullName, String password,String emailAddress,int phoneNumber,String country,String birthDate) {   /* unique username and email and phone number */
+        public User signUp(String username,String fullName, String password,String emailAddress,int phoneNumber,String country,String birthDate) {
+            // if ( unique username)
+            // if ( unique email )
+            // if ( unique phone )
             User user = new User(username,fullName ,password,emailAddress,phoneNumber,country,birthDate);
             this.users.add(user);
             return user;
         }
 
-        public User logIn(String username, String password) {
+        public User logIn(String username, String password) {    /// error for wrong password
             for (User user : this.users) {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                     return user;
@@ -43,9 +46,5 @@ public class Twitter {
         return sortedTweets.subList(0, Math.min(limit, sortedTweets.size()));
     }
 }
-
-
-
         // Other methods for interacting with the platform, such as following users, searching for tweets, etc.
-}
 
